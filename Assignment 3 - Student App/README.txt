@@ -8,7 +8,7 @@ Creating and storing student objects in an array.
 
 Asking whether the user wants to print all students' report cards.
 
-____________________________________________________________
+_______________________________________________________________________
 
 Student.java (in the dto package)
 
