@@ -10,7 +10,17 @@ class Vehicle {
     private String brand;
     private String model;
     private double rentalPricePerDay;
-    static Scanner sc = new Scanner(System.in);  
+    static Scanner sc = new Scanner(System.in);
+
+    /**
+	 * 
+	 */
+	public Vehicle() {
+		brand = "something";
+		model = "something";
+		rentalPricePerDay = 1000;
+	}
+
     // Parameterized constructor
     /**
      * @param brand
