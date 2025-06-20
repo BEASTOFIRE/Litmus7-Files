@@ -13,13 +13,13 @@ class Vehicle {
     static Scanner sc = new Scanner(System.in);
 
     /**
-	 * 
-	 */
-	public Vehicle() {
-		brand = "something";
-		model = "something";
-		rentalPricePerDay = 1000;
-	}
+     * 
+     */
+    public Vehicle() {
+	brand = "something";
+	model = "something";
+	rentalPricePerDay = 1000;
+   }
 
     // Parameterized constructor
     /**
