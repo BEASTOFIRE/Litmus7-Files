@@ -66,8 +66,8 @@ public class VehicleService {
 	 * Displays details of all vehicles in the list.
 	 */
 	public void displayAllVehicles() {
-		for (Vehicle v : vehicles) {
-			v.displayDetails();
+		for (Vehicle vehicle : vehicles) {
+			vehicle.displayDetails();
 			System.out.println("\n");
 		}
 	}
@@ -77,9 +77,9 @@ public class VehicleService {
 	 * @param keyword Brand or model name to search.
 	 */
 	public void searchVehicles(String keyword) {
-		for (Vehicle v : vehicles) {
-			if (v.getBrand().equalsIgnoreCase(keyword) || v.getModel().equalsIgnoreCase(keyword)) {
-				v.displayDetails();
+		for (Vehicle vehicle : vehicles) {
+			if (vehicle.getBrand().equalsIgnoreCase(keyword) || vehicle.getModel().equalsIgnoreCase(keyword)) {
+				vehicle.displayDetails();
 				System.out.println("\n");
 			}
 		}
@@ -91,8 +91,8 @@ public class VehicleService {
 	 */
 	public double calculateRental() {
 		double total = 0.0;
-		for (Vehicle v : vehicles) {
-			total += v.getRentalPricePerDay();
+		for (Vehicle vehicle : vehicles) {
+			total += vehicle.getRentalPricePerDay();
 		}
 		return total;
 	}
@@ -103,24 +103,19 @@ public class VehicleService {
 	 * @param brand Brand name of the vehicle.
 	 */
 	public void rentVehicle(String model, String brand) {
-		int flag = 0;
 
-		for (Vehicle v : vehicles) {
-			if (v.getModel().equalsIgnoreCase(model) && v.getBrand().equalsIgnoreCase(brand)) {
-				if (v.getIsAvailable()) {
-					v.setAvailable(false);
-					flag = 1;
+		for (Vehicle vehicle : vehicles) {
+			if (vehicle.getModel().equalsIgnoreCase(model) && vehicle.getBrand().equalsIgnoreCase(brand)) {
+				if (vehicle.getIsAvailable()) {
+					vehicle.setAvailable(false);
 					System.out.println("Vehicle Rented Successfully");
 				} else {
-					flag = 1;
 					System.out.println("Vehicle already Rented");
 				}
+				return;
 			}
 		}
-
-		if (flag == 0) {
-			System.out.println("Vehicle not found.");
-		}
+		System.out.println("Vehicle not found");
 	}
 
 	/**
@@ -129,23 +124,18 @@ public class VehicleService {
 	 * @param brand Brand name of the vehicle.
 	 */
 	public void returnVehicle(String model, String brand) {
-		int flag = 0;
 
-		for (Vehicle v : vehicles) {
-			if (v.getModel().equalsIgnoreCase(model) && v.getBrand().equalsIgnoreCase(brand)) {
-				if (!v.getIsAvailable()) {
-					flag = 1;
-					v.setAvailable(true);
+		for (Vehicle vehicle : vehicles) {
+			if (vehicle.getModel().equalsIgnoreCase(model) && vehicle.getBrand().equalsIgnoreCase(brand)) {
+				if (vehicle.getIsAvailable()==false) {
+					vehicle.setAvailable(true);
 					System.out.println("Vehicle returned Successfully");
 				} else {
-					flag = 1;
 					System.out.println("Vehicle already Returned or Vehicle not Rented.");
 				}
+				return;
 			}
 		}
-
-		if (flag == 0) {
-			System.out.println("Vehicle not found.");
-		}
+		System.out.println("Vehicle not found.");
 	}
 }
