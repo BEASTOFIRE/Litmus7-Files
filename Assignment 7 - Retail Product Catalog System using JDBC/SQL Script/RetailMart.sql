@@ -10,7 +10,7 @@ CREATE TABLE products(
 productId INT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(100) NOT NULL,
 category VARCHAR(50) NOT NULL,
-price DOUBLE,
+price DOUBLE NOT NULL,
 stockQuantity INT NOT NULL
 );
 
